@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>Girl Call Center — AI Voice</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="brand">☎️ <span>Girl Call Center</span></div>
+      <div class="badge">IA</div>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">AI VOICE CENTER</p>
+      <h1>Parle avec ton personnage IA</h1>
+      <p>Choisis une IA, puis lance une conversation vocale. Les personnages sont des intelligences artificielles.</p>
+    </section>
+
+    <section class="balance">
+      <div>
+        <span class="label">Mon crédit</span>
+        <strong id="balance">15:00</strong>
+      </div>
+      <button id="buyBtn" class="secondary">+ Acheter du temps</button>
+    </section>
+
+    <h2>Choisis ton IA</h2>
+    <section id="characters" class="characters"></section>
+
+    <section id="callPanel" class="call hidden">
+      <div class="avatar large" id="callAvatar">E</div>
+      <p class="small">APPEL AVEC</p>
+      <h2 id="callName">Emma</h2>
+      <p id="callStatus">Prêt à commencer</p>
+      <div class="timer" id="timer">15:00</div>
+      <button id="startBtn" class="primary">🎙️ Démarrer l'appel</button>
+      <button id="endBtn" class="danger hidden">Terminer</button>
+      <p class="notice">Prototype : l'audio réel et le paiement Telegram seront branchés dans la version backend.</p>
+    </section>
+
+    <footer>
+      <span>Version prototype</span>
+      <span>•</span>
+      <span>Les personnages sont des IA</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
