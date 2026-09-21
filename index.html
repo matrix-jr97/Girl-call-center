@@ -1,53 +1,124 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111827">
-  <title>Girl Call Center — AI Voice</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0d060b">
+  <title>Girl Call Center</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app">
-    <header>
-      <div class="brand">☎️ <span>Girl Call Center</span></div>
-      <div class="badge">IA</div>
+  <aside class="sidebar">
+    <div class="logo">♡</div>
+    <button class="dots">•••</button>
+    <nav>
+      <a class="active" href="#home">⌂ <span>Accueil</span></a>
+      <a href="#characters">♙ <span>Personnages</span></a>
+      <a href="#history">◷ <span>Historique</span></a>
+      <a href="#credits">▣ <span>Crédits</span></a>
+      <a href="#settings">⚙ <span>Paramètres</span></a>
+    </nav>
+  </aside>
+
+  <main class="main" id="home">
+    <header class="topbar">
+      <div class="mobile-title">Girl Call Center</div>
+      <div class="top-actions">
+        <div class="credit-pill">
+          <span>◷</span><strong id="balance">15:00</strong>
+          <button id="buyBtn" aria-label="Ajouter du crédit">+</button>
+        </div>
+        <div class="profile">♡</div>
+      </div>
     </header>
 
     <section class="hero">
-      <p class="eyebrow">AI VOICE CENTER</p>
-      <h1>Parle avec ton personnage IA</h1>
-      <p>Choisis une IA, puis lance une conversation vocale. Les personnages sont des intelligences artificielles.</p>
-    </section>
-
-    <section class="balance">
       <div>
-        <span class="label">Mon crédit</span>
-        <strong id="balance">15:00</strong>
+        <div class="eyebrow">BIENVENUE ✦</div>
+        <h1>Prête pour une nouvelle conversation ? <b>♥</b></h1>
+        <p>Choisis ton personnage préféré et lance un appel vocal.</p>
       </div>
-      <button id="buyBtn" class="secondary">+ Acheter du temps</button>
+      <div class="hero-heart">♡</div>
     </section>
 
-    <h2>Choisis ton IA</h2>
-    <section id="characters" class="characters"></section>
+    <section id="characters">
+      <div class="section-head">
+        <h2>Personnages</h2>
+        <span>Choisis ta conversation</span>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="photo photo1"></div>
+          <div class="card-info">
+            <h3>Emma <span>♥</span></h3>
+            <p>Calme, chaleureuse et attentive. Idéale pour discuter.</p>
+          </div>
+          <button class="choose" onclick="selectCharacter('Emma','E')">→</button>
+        </article>
+
+        <article class="card">
+          <div class="photo photo2"></div>
+          <div class="card-info">
+            <h3>Lina <span>♥</span></h3>
+            <p>Sincère, douce et pleine d'énergie. Parfaite pour discuter.</p>
+          </div>
+          <button class="choose" onclick="selectCharacter('Lina','L')">→</button>
+        </article>
+
+        <article class="card">
+          <div class="photo photo3"></div>
+          <div class="card-info">
+            <h3>Sasha <span>♥</span></h3>
+            <p>Drôle, spontanée et pleine de personnalité.</p>
+          </div>
+          <button class="choose" onclick="selectCharacter('Sasha','S')">→</button>
+        </article>
+
+        <article class="card">
+          <div class="photo photo4"><div class="photo-letter">M</div></div>
+          <div class="card-info">
+            <h3>Maya <span>♥</span></h3>
+            <p>Énergique, joyeuse et toujours partante pour discuter.</p>
+          </div>
+          <button class="choose" onclick="selectCharacter('Maya','M')">→</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="bottom-grid">
+      <div class="info-card">
+        <div class="round">◷</div>
+        <div><small>Mon crédit</small><strong id="bottomBalance">15:00</strong></div>
+      </div>
+
+      <div class="info-card voice">
+        <div class="round">⌁</div>
+        <div><small>Appel vocal disponible</small><span>Parle avec ton personnage préféré</span></div>
+        <button onclick="document.getElementById('callPanel').scrollIntoView({behavior:'smooth'})">→</button>
+      </div>
+
+      <div class="quote">
+        <span>♡</span>
+        <em>Des conversations<br>sans limites...</em>
+      </div>
+    </section>
 
     <section id="callPanel" class="call hidden">
-      <div class="avatar large" id="callAvatar">E</div>
-      <p class="small">APPEL AVEC</p>
-      <h2 id="callName">Emma</h2>
-      <p id="callStatus">Prêt à commencer</p>
+      <div class="call-avatar" id="callAvatar">E</div>
+      <div>
+        <small>APPEL VOCAL</small>
+        <h2 id="callName">Emma</h2>
+        <p id="callStatus">Prête à commencer</p>
+      </div>
       <div class="timer" id="timer">15:00</div>
-      <button id="startBtn" class="primary">🎙️ Démarrer l'appel</button>
-      <button id="endBtn" class="danger hidden">Terminer</button>
-      <p class="notice">Prototype : l'audio réel et le paiement Telegram seront branchés dans la version backend.</p>
+      <button id="startBtn" class="call-btn">🎙 Commencer</button>
+      <button id="endBtn" class="call-btn end hidden">Terminer</button>
+      <p class="notice">Les personnages présentés sont virtuels. La connexion vocale réelle sera ajoutée dans la prochaine version.</p>
     </section>
 
-    <footer>
-      <span>Version prototype</span>
-      <span>•</span>
-      <span>Les personnages sont des IA</span>
-    </footer>
+    <footer>Girl Call Center · Expérience de conversation vocale</footer>
   </main>
+
   <script src="app.js"></script>
 </body>
 </html>
